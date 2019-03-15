@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>买了个饼</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/addr_list.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <a class="left-item" href="/"><</a>
+            收货地址
+            <a class="right-item" href="/address/add_addr">新增</a>
+        </header>
+        <div class="container">
+            <div id="in_range">
+                <ul>
+                    {% for addr in in_range_list %}
+                    <li class="addr_list url" userid={{ addr.user_id }} addrid={{ addr.id }}>
+                        <a href="modifity_addr?addrid={{ addr.id }}"><img src="/static/images/modifity.png"></a>
+                        <p><b>{{ addr.business }}</b></p>
+                        <p>{{ addr.address}}</p>
+                        <p>{{ addr.name }} {{ addr.mobilephone }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div>
+                {% if outof_range_list %}
+                <p id="divider"><b>以下地址超出配送范围</b></p>
+                {% endif %}
+                <ul id="outof_range">
+                    {% for addr in outof_range_list %}
+                    <li class="addr_list" userid={{ addr.user_id }} addrid={{ addr.id }}>
+                        <a href="modifity_addr?addrid={{ addr.id }}"><img src="/static/images/modifity.png"></a>
+                        <p><b>{{ addr.business }}</b></p>
+                        <p>{{ addr.address}}</p>
+                        <p>{{ addr.name }} {{ addr.mobilephone }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    <script src="/static/js/jquery-1.11.3.js"></script>
+    <script src="/static/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/static/js/addr_list.js"></script>
+</body>
+</html>

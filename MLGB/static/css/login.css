@@ -1,0 +1,133 @@
+body,p{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+body{
+	font:12px "微软雅黑","黑体";
+	color:rgb(146,146,146);
+}
+
+#container{
+	width:414px;
+	margin:0 auto;
+}
+
+#background{
+	width:414px;
+	height:736px;
+	background-image:url("../images/mlgb_2.jpg");
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+	position:absolute;
+}
+
+#mainlog{
+	position:relative;
+	left:60px;
+	top:200px;
+	width:300px;
+	height:400px;
+	background-color:transparent;
+	border-radius:15px;
+}
+
+#mainlog .p1 #icon1{
+	float:left;
+	width:15px;
+	height:23px;
+	margin-right:15px;
+}
+
+#mainlog .p1 #icon2{
+	float:left;
+	width:20px;
+	height:22px;
+	margin-right:10px;
+}
+
+#mainlog .p1{
+	padding-top:30px;
+	padding-bottom:5px;
+	border-bottom:1px solid #d7d7d7;
+}
+
+
+
+
+#mainlog .p1>input{
+	box-sizing:border-box;
+	width:215px;
+	height:25px;
+	border:none;
+	padding-left:5px;
+	padding-right:5px;
+	vertical-align:middle;
+	font-size:16px;
+	outline:none;
+}
+
+#mainlog .p1>input:focus{
+	outline:none;
+}
+
+#mainlog #loginBtn{
+	margin-top:40px;
+	text-align:center;
+}
+
+#mainlog #loginBtn input{
+	height:60px;
+	width:290px;
+	background:#F8424E;
+	border-radius:10px;
+	border:none;
+	font-size:21.5px;
+	color:white;
+}
+
+#mainlog #loginBtn input:focus{
+	outline:none;
+}
+
+
+#mainlog .errorput>input{
+	border:2px solid red;
+}
+
+
+#mainlog .errorlist {
+	color: red;
+	font: 13.5px "微软雅黑", "黑体";
+	margin-top:4px;
+	margin-bottom:0px;
+	list-style:none;
+}
+
+
+#mainlog .eMsg{
+	color: red;
+	font: 13.5px "微软雅黑", "黑体";
+	margin-top:4px;
+	margin-bottom:0px;
+}
+
+
+
+#mainlog #newCustomer{
+	float:right;
+	font: 16px "微软雅黑", "黑体";
+	margin-top:15px;
+	text-decoration:none;
+	color:rgb(238,71,53);
+}
+
+
+#mainlog #forgetPwd{
+	float:left;
+	font: 16px "微软雅黑", "黑体";
+	margin-top:15px;
+	text-decoration:none;
+	color:rgb(238,71,53);
+}

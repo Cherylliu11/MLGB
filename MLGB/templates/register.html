@@ -1,0 +1,62 @@
+<!doctype html>
+{% load staticfiles%}
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>注册</title>
+  <link rel="stylesheet" href="{% static 'css/register.css' %}">
+ </head>
+ <body>
+	<div id="container">
+		<div id="background">
+			<img src="">
+			<div id="mainlog">
+				<form class="d2" action="/register/" method="post" autocomplete="off">
+					<p class="p1 {% if register_form.errors %} errorput {% endif %}">
+						<img src="{% static 'images/cell.jpg' %}" id="icon1">
+						<input type="text" name="phonenum" placeholder="请输入手机号" value="{{phonenum}}">
+						{{register_form.errors.phonenum}}
+					</p>
+                    <p class="eMsg">{{msg1}}</p>
+					<p class="p1 {% if register_form.errors %} errorput {% endif %}">
+						<img src="{% static 'images/lock.jpg' %}" id="icon2">
+						<input type="password" name="password" placeholder="请设置密码, 至少六位" value="{{password}}">
+						{{register_form.errors.password}}
+					</p>
+                    <p class="p1 {% if register_form.errors %} errorput {% endif %}">
+						<img src="{% static 'images/email.png' %}" id="icon3">
+						<input type="email" name="email" placeholder="请输入常用邮箱" value="{{email}}">
+						{{register_form.errors.email}}
+					</p>
+					<p class="eMsg">{{msg2}}</p>
+					<p id="verification" class="p1 captcha1 {% if register_form.errors.captcha %} errorput {% endif %}">
+						<img src="{% static 'images/verify.png' %}" id="icon4">
+						{% csrf_token %}
+						{{register_form.captcha}}
+					</p>
+					<p class="eMsg">
+						{{register_form.errors.captcha}}
+					</p>
+					<p id="registerBtn">
+						<input type="submit" id="Btn" value="注册" name="regBtn"><label for="regBtn"></label>
+					</p>
+					<a href="/login/" id="alreadyExist">登录已有账号</a>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="/static/js/jquery-1.11.3.js"></script>
+ 	<script src="/static/js/register.js"></script>
+	<script>
+		var msg = "{{ message }}";
+		if(msg){
+		    $('<div>').appendTo('body').addClass('alert alert-success').html(msg).show().delay(2000).fadeOut();
+		}
+	</script>
+ </body>
+</html>

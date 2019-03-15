@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>买了个饼</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/order_list.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <a class="left-item" href="/"><</a>
+            <div class="center-item">我的订单</div>
+        </header>
+        <div class="container">
+            {% if current_order %}
+            <h1>当前订单</h1>
+            {% for order in current_order %}
+            <div class="current_order" order_id = {{order.order_id}}>
+                <div class="order_left">
+                    <p class="p1">您本次订餐共计{{ order.total_count }}份餐品</p>
+                    <p class="p2">{{ order_time }}</p>
+                </div>
+                <div class="order_right">
+                    <p class="p1">{{ order.get_status_display }} ></p>
+                    <p class="p2">￥{{ order.total_price }}</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            {% endfor%}
+            {% endif %}
+            {% if history_order %}
+            <h1>历史订单</h1>
+            {% for order in history_order %}
+            <div class="history_order" order_id = {{order.order_id}}>
+                <div class="order_left">
+                    <p class="p1">您本次订餐共计{{ order.total_count }}份餐品</p>
+                    <p class="p2">{{ order_time }}</p>
+                </div>
+                <div class="order_right">
+                    <p class="p1">{{ order.get_status_display }} ></p>
+                    <p class="p2">￥{{ order.total_price }}</p>
+                </div>
+            </div>
+            {% endfor%}
+            {% endif %}
+        </div>
+    <script src="/static/js/jquery-1.11.3.js"></script>
+    <script src="/static/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/static/js/order_list.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+* {
+	padding:0;
+	margin:0;
+	font-size:14px;
+    outline: none;
+}
+
+a {
+	color:rgb(7,17,27);
+	text-decoration:none;
+}
+
+ul{
+    list-style: none;
+}
+
+input{
+    border: 0px;
+    border-bottom: 0.1px solid lightgrey;
+    outline:none;
+}
+
+.wrapper{
+    width: 414px;
+    height: 736px;
+}
+
+header{
+    width: 414px;
+    height: 60px;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    line-height: 60px;
+    /*margin-bottom: 10px;*/
+    border-bottom: 1px solid lightgrey;
+    background: red;
+}
+
+header .left-item{
+    height: 40px;
+    width: 60px;
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    font-size: 30px;
+    float: left;
+}
+
+header p{
+    width: 36px;
+    height: 40px;
+    margin: 10px;
+    float: right;
+    line-height: 40px;
+    font-size: 18px;
+}
+.container{
+    padding: 10px 30px;
+}
+
+#user,#tel,#addr,#district{
+    width: 354px;
+    height: 60px;
+    border-bottom: 0.1px solid lightgrey;
+}
+
+.left{
+    width: 70px;
+    height: 60px;
+    line-height: 60px;
+    font-weight: bolder;
+    float: left;
+    font-size: 16px;
+}
+
+.right{
+    width: 284px;
+    height: 60px;
+    line-height: 60px;
+    float: right;
+    font-size: 16px;
+}
+
+.ico{
+    width: 40px;
+    height: 60px;
+    font-size: 20px;
+    color: darkgrey;
+    float: right;
+    text-align: right;
+    line-height: 60px;
+}
+
+#addr .right{
+    width: 244px;
+}
+
+#comfirm{
+    width: 354px;
+    height: 60px;
+    border-radius: 5px;
+    background: red;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    line-height: 60px;
+    margin-top: 60px;
+}
+
+.alert {
+    display: none;
+    position: fixed;
+    font-size: 18px;
+    top: 30%;
+    left: 50%;
+    min-width: 120px;
+    margin-left: -60px;
+    z-index: 99999;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+
+
+}
+
+.alert-success {
+    color: white;
+    text-align: center;
+    /*background-color: #dff0d8;*/
+    background: rgba(255, 0, 0, 0.60);
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>买了个饼</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/order_info.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <!--<div class="left-item"><a href="/"><</a></div>-->
+            <a class="left-item" href="/order/order_list"><</a>
+            <div class="center-item">订单详情</div>
+        </header>
+        <div class="address">
+            <div class="order_state">
+                <h1>{{order_info.get_status_display }}</h1>
+            </div>
+        </div>
+        <div class="order_list">
+            <table>
+                <tr id="tb_title">
+                    <th>商品信息</th>
+                </tr>
+                {% for productdetail in order_list %}
+                <tr>
+                    <td class="td_c1">{{ productdetail.name }}</td>
+                    <td class="td_c2"><b>x{{ productdetail.count }}</b></td>
+                    <td class="td_c3" align="right"><b>￥{{ productdetail.amount }}</b></td>
+                </tr>
+                 {% endfor %}
+                <tr>
+                    <td class="td_c1">餐盒费</td>
+                    <td></td>
+                    <td class="td_c3" align="right"><b>￥0</b></td>
+                </tr>
+                <tr>
+                    <td class="td_c1">商家配送</td>
+                    <td ></td>
+                    <td class="td_c3" align="right"><b>￥0</b></td>
+                </tr>
+                <tr>
+                    <td class="td_c4">红包</td>
+                    <td class="td_c5" colspan="2" align="right"><b>￥0</b></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>实付</td>
+                    <td class="td_c6" align="right">￥{{ order_info.total_price }}</td>
+                </tr>
+            </table>
+        </div>
+        <div id="delivery_info">
+            <table>
+                <tr id="tb_title">
+                    <th>配送信息</th>
+                </tr>
+                <tr>
+                    <td class="delivery_left">送达时间</td>
+                    <td class="delivery_right">尽快送达</td>
+                </tr>
+                <tr>
+                    <td class="delivery_left">收货地址</td>
+                    <td class="delivery_right"><p>{{order_info.business}}</p><p>{{order_info.name}} {{order_info.mobilephone}}</p></td>
+                </tr>
+                <tr>
+                    <td class="delivery_left">配送方式</td>
+                    <td class="delivery_right">商家配送</td>
+                </tr>
+            </table>
+        </div>
+        <div id="order_info" order_id={{order_id}}>
+            {% csrf_token %}
+            <table>
+                <tr id="tb_title">
+                    <th>订单信息</th>
+                </tr>
+                <tr>
+                    <td class="delivery_left">订单号</td>
+                    <td class="delivery_right">{{order_info.order_id}}</td>
+                </tr>
+                <tr>
+                    <td class="delivery_left">支付方式</td>
+                    <td class="delivery_right">在线支付</td>
+                </tr>
+                <tr>
+                    <td class="delivery_left">下单时间</td>
+                    <td class="delivery_right">{{order_info.order_time}}</td>
+                </tr>
+            </table>
+            {% if order_info.status == '1' or order_info.status == '2' %}
+            <div id="cancel">
+                取消订单
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="/static/js/jquery-1.11.3.js"></script>
+    <script src="/static/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/static/js/order_info.js"></script>
+</body>
+</html>

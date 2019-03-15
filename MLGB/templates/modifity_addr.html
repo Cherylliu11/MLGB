@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>买了个饼</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/modifity_addr.css">
+</head>
+<body>
+    <div class="wrapper" addr_id="{{ addr_id }}">
+        <header>
+            <a class="left-item" href="addr_list"><</a>
+            {% block "title" %}修改地址{% endblock %}
+            {% csrf_token %}
+            <p id="del">{% block "header-left" %}删除{% endblock %}</p>
+        </header>
+        <div class="container">
+            <div id="info">
+                <div id="user">
+                    <div class="left">联系人</div>
+                    <input class="right" value="{{ addr_info_dict.name }}" placeholder="姓名">
+                </div>
+                <div id="tel">
+                    <div class="left">电话</div>
+                    <input class="right" value="{{ addr_info_dict.mobilephone }}" placeholder="手机号码">
+                </div>
+                <div id="addr">
+                    <a href="location">
+                        <div class="left">地址</div>
+                        <div class="ico">></div>
+                        <input class="right" placeholder="选择收获地址" value="{{ addr_info_dict.business }}">
+                    </a>
+                </div>
+                <div id="district">
+                    <div class="left">门牌号</div>
+                    <input class="right" value="{{ addr_info_dict.address }}" placeholder="例:5号楼203室"></input>
+                </div>
+            </div>
+            {% csrf_token %}
+            <div id="comfirm">
+                保存
+            </div>
+
+        </div>
+    <script src="/static/js/jquery-1.11.3.js"></script>
+    <script src="/static/js/jquery.cookie.js"></script>
+    {% block "js" %}<script type="text/javascript" src="/static/js/modifity_addr.js"></script>{% endblock %}
+</body>
+</html>

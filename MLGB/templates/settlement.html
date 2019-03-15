@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>买了个饼</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/settlement.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <!--<div class="left-item"><a href="/"><</a></div>-->
+            <a class="left-item" href="/"><</a>
+            <div class="center-item">订单支付</div>
+        </header>
+        <div class="address">
+            <div class="address-left" addr_id="{{ addr.id }}">
+                <p>订单配送至</p>
+                <h1>{{ addr.business | default:"请添加新的收货地址"}}{{ addr.address }}</h1>
+                <h2 class="name"><span>{{ addr.name }}</span></h2>
+                <h2 class="tel"><span>{{ addr.mobilephone }}</span></h2>
+            </div>
+            <div class="address-right">
+                >
+            </div>
+        </div>
+        <div class="c1">
+            <div class="c1-left"><b>送达时间</b></div>
+            <div class="c1-right">尽快送达({{addr.estimate}}送达)</div>
+        </div>
+        <div class="c1">
+            <div class="c1-left"><b>支付方式</b></div>
+            <div class="c1-right">支付宝免密码支付</div>
+        </div>
+
+        <div class="order_list">
+            <table>
+                {% for product in list %}
+                <tr>
+                    <td class="td_c1 price" productid={{ product.id}} price={{ product.price }}>{{ product.name }}</td>
+                    <td class="td_c2"><b>x{{ product.count }}</b></td>
+                    <td class="td_c3" align="right"><b>￥{{ product.amount }}</b></td>
+                </tr>
+                 {% endfor %}
+                <tr>
+                    <td class="td_c1">餐盒费</td>
+                    <td></td>
+                    <td class="td_c3" align="right"><b>￥0</b></td>
+                </tr>
+                <tr>
+                    <td class="td_c1">商家配送</td>
+                    <td ></td>
+                    <td class="td_c3" align="right"><b>￥0</b></td>
+                </tr>
+                <tr>
+                    <td class="td_c4"><b>红包</b></td>
+                    <td class="td_c5" colspan="2" align="right">无可用红包&nbsp></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>小计</td>
+                    <td class="td_c6" align="right">￥{{ total_amount }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="footer">
+            {% csrf_token %}
+            <a class="footer-btn" href="javascript:;">免密支付</a>
+            <div class="footer-price">
+                &yen;{{ total_amount }}
+            </div>
+    </div>
+    <script src="/static/js/jquery-1.11.3.js"></script>
+    <script src="/static/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/static/js/settlement.js"></script>
+</body>
+</html>

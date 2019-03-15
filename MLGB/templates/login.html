@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>登录</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/login.css">
+ </head>
+ <body>
+	<div id="container">
+		<div id="background">
+			<div id="mainlog">
+				<form class="d2" action="/login/" method="post" autocomplete="off">
+					<p class="p1 {% if login_form.errors.username %} errorput {% endif %}">
+						<img src="/static/images/cell.jpg" id="icon1">
+						<input type="text" name="username" placeholder="请输入手机号" value="{{username}}">
+						{{login_form.errors.username}}
+					</p>
+					<p class="p1 {% if login_form.errors.password %} errorput {% endif %}">
+						<img src="/static/images/lock.jpg" id="icon2">
+						<input type="password" name="password" placeholder="请输入密码" value="{{password}}">
+						{{login_form.errors.password}}
+					</p>
+					<p class="eMsg">
+						{{msg}}
+					</p>
+					<p id="loginBtn">
+						<input id="Btn" type="submit" value="登  录" name="logBtn"><label for="logBtn"></label>
+					</p>
+					{% csrf_token %}
+					<a href="/register/" id="newCustomer">没有账号?立即注册</a>
+					<a href="/forget/" id="forgetPwd">忘记密码</a>
+				</form>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>

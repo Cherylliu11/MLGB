@@ -1,0 +1,139 @@
+* {
+	padding:0;
+	margin:0;
+	font-size:14px;
+  outline: none;
+}
+
+a {
+	color:rgb(7,17,27);
+	text-decoration:none;
+}
+
+input {
+    border: 0px;
+}
+.wrapper {
+    width:414px;
+    height:736px;
+    margin:0 auto;
+    background: #f0f0f0;
+;
+}
+header{
+    width: 414px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 20px;
+    color: white;
+    /*margin-bottom: 10px;*/
+    border-bottom: 1px solid lightgrey;
+    background: red;
+}
+
+header .left-item{
+    height: 40px;
+    width: 60px;
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    font-size: 30px;
+    float: left;
+}
+
+header .center-item{
+    height: 40px;
+    width: 310px;
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    float: left;
+}
+
+#main div{
+    position: relative;
+    height: 60px;
+    border-bottom: 0.1px solid lightgrey;
+    background: white;
+}
+
+.item > img{
+    position: absolute;
+    top: 50%;
+    height: 40px;
+    margin-top: -20px;
+}
+
+.left-img{
+    left: 10px;
+}
+
+.item > p {
+    position: absolute;
+    left: 60px;
+    top: 50%;
+    margin-top: -10px;
+    font-size: 16px;
+}
+
+.right{
+    position: absolute;
+    /*top: 50%;*/
+    height: 58px;
+    /*margin-top: -10px;*/
+    right: 15px;
+    text-align: right;
+}
+
+#userimg{
+    /*position: absolute;*/
+    height: 40px;
+    right: 15px;
+    text-align: right;
+    float: right;
+}
+
+#photo{
+    margin-top: 20px;
+}
+
+#setpwd1,#setpwd2{
+    display:none
+}
+#footer{
+    background: red;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    height: 50px;
+    width: 414px;
+    line-height: 50px;
+    position: fixed;
+    bottom: 0px;
+}
+
+.alert {
+    display: none;
+    position: fixed;
+    font-size: 18px;
+    top: 30%;
+    left: 50%;
+    min-width: 120px;
+    width: 120px;
+    margin-left: -75px;
+    z-index: 99999;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-success {
+    color: white;
+    text-align: center;
+    /*background-color: #dff0d8;*/
+    background: rgba(255, 0, 0, 0.60);
+}

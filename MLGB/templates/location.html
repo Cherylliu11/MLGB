@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<title>买了个饼</title>
+<link rel="stylesheet" type="text/css" href="/static/css/location.css">
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=dBT59pPxp22DTtquvD7l0YQqM6qYzbWZ"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <a class="left-item" href="/"><</a>
+            修改送餐地址
+            <a class="right-item" href="/">确认</a>
+        </header>
+        <div class="search">
+            <img src="/static/images/search.png">
+            <input type="text" id="suggestId" size="30" placeholder="小区/街道/写字楼等"/>
+
+        </div>
+        <div id="container"></div>
+        <div id="searchResultPanel">
+            <ul>
+
+            </ul>
+        </div>
+    </div>
+    <script src="/static/js/jquery-1.11.3.js"></script>
+    <script src="/static/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/static/js/location.js"></script>
+</body>
+</html>

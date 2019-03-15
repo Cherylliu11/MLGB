@@ -1,0 +1,213 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>买了个饼</title>
+<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+<script src="/static/js/jquery-1.11.3.js"></script>
+<script src="/static/js/jquery.cookie.js"></script>
+</head>
+<body>
+<div class="wrapper">
+  <div class="cd-nav" style="display: none;">
+      <div id="user_content">
+          <img src="/static/images/default.png">
+          {% if request.user.is_authenticated %}
+          <P>客户</P>
+          {% else %}
+          <p><a href="login">登录|注册</a></p>
+          {% endif %}
+      </div>
+      <div id="menu_list">
+          <ul>
+              <li class="icon menu_icon" id="menu"><img src="/static/images/addr_ico.png"><span>菜单</span></li>
+              <li class="icon" id="order"><img src="/static/images/order_ico.png"><span>我的订单</span></li>
+              <li class="icon" id="user"><img src="/static/images/user_ico.png"><span>个人信息</span></li>
+              <li class="icon" id="addr"><img src="/static/images/addr_ico.png"><span>地址管理</span></li>
+              {% if request.user.is_authenticated %}
+              <li class="icon" id="logout"><p><a href="">退出登录</a></p></li>
+              {% endif %}
+          </ul>
+      </div>
+  </div>
+  <div class="header">
+      <img class="menu" src="/static/images/menu.png">
+      <img class="logo" src="/static/images/head.jpg" >
+  </div>
+  <div class="container">
+    <div class="outer-container left">
+      <div class="inner-container">
+        <div class="element">
+          <ul>
+            <li class="list list-active"> <a href="#list01" class="list-a"> 匹萨 </a> </li>
+            <li class="list"> <a href="#list02" class="list-a"> 饭面 </a> </li>
+            <li class="list"> <a href="#list03" class="list-a"> 小食 </a> </li>
+            <li class="list"> <a href="#list04" class="list-a"> 饮料 </a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="outer-container right">
+      <div class="inner-container" id="right-hook">
+        <div class="element">
+          <ul>
+            {% for product in product_list %}
+              {% ifequal product.groups '匹萨' %}
+              {% csrf_token %}
+              <li class="right-list" id="list01">
+                <div style="position:relative">
+                  <img src="{{ MEDIA_URL }}{{ product.image }}" width="100%"/>
+                  <p class="product"><b>{{ product.name }}</b></p>
+                  <p class="price">￥<span style="font-size: 20px;">{{ product.price }}<span></p>
+                  {% if request.user.is_authenticated %}
+                    <button class='add add_cart'  product_id={{ product.product_id }} num='0' value="+" id="add_cart">+</button>
+                  {% else %}
+                    <a class='gologin' href="login">开始订餐</a>
+                  {% endif %}
+                </div>
+              </li>
+              {% endifequal %}
+            {% endfor %}
+            {% for product in product_list %}
+              {% ifequal product.groups '饭面' %}
+              <li class="right-list" id="list02">
+                <div style="position:relative">
+                  <img src="{{ MEDIA_URL }}{{ product.image }}"width="100%"/>
+                  <p class="product"><b>{{ product.name }}</b></p>
+                  <p class="price">￥{{ product.price }}</p>
+                  {% if request.user.is_authenticated %}
+                    <button class='add add_cart'  product_id={{ product.product_id }} num='0' value="+" id="add_cart">+</button>
+                  {% else %}
+                    <a class='gologin' href="login">开始订餐</a>
+                  {% endif %}
+                </div>
+              </li>
+              {% endifequal %}
+            {% endfor %}
+            {% for product in product_list %}
+              {% ifequal product.groups '小食' %}
+              <li class="right-list" id="list03">
+                <div style="position:relative">
+                  <img src="{{ MEDIA_URL }}{{ product.image }}"width="100%"/>
+                  <p class="product"><b>{{ product.name }}</b></p>
+                  <p class="price">￥{{ product.price }}</p>
+                  {% if request.user.is_authenticated %}
+                    <button class='add add_cart'  product_id={{ product.product_id }} num='0' value="+" id="add_cart">+</button>
+                  {% else %}
+                    <a class='gologin' href="login">开始订餐</a>
+                  {% endif %}
+                </div>
+              </li>
+              {% endifequal %}
+            {% endfor %}
+            {% for product in product_list %}
+              {% ifequal product.groups '饮料' %}
+              <li class="right-list" id="list04">
+                <div style="position:relative">
+                  <img src="{{ MEDIA_URL }}{{ product.image }}"width="100%"/>
+                  <p class="product"><b>{{ product.name }}</b></p>
+                  <p class="price">￥{{ product.price }}</p>
+                  {% if request.user.is_authenticated %}
+                    <button class='add add_cart'  product_id={{ product.product_id }} num='0' value="+" id="add_cart">+</button>
+                  {% else %}
+                    <a class='gologin' href="login">开始订餐</a>
+                  {% endif %}
+                </div>
+              </li>
+              {% endifequal %}
+            {% endfor %}
+          </ul>
+          <!--<div style="height: 50px;"></div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cart-list"  id="footer-div"  style="display: none;">
+      <div class="cart-list-detail">
+      </div>
+  </div>
+  <div class="footer">
+      <div class="footer-right">
+        {% if total_count > 0 %}
+        <a class="submit-btn" href="order/settlement">去结算</a>
+        {% else %}
+        <a class="submit-btn" href="javajavascript:;" style="background: grey">去结算</a>
+        {% endif %}
+        <p class="submit-count">
+            已选<span>{{ total_count }}</span>件商品
+        </p>
+        <p class="submit-price">
+            共计 : <span>&yen;{{ total_price }}</span>
+        </p>
+      </div>
+      <div class="footer-left">
+          <img class="cart-img" src="/static/images/cart.png">
+      </div>
+  </div>
+
+
+</div>
+
+<script>
+    var amount = {{ total_price }};
+
+    //购物车遮罩层添加商品
+    $('body').on('click','.cart_product_add',function (){
+        product_id = $(this).attr('product_id');
+        price = $(this).attr('price');
+        count = $(this).prev('.cart_product_count').text()
+        count = Number(count) + 1
+        // price = price.substring(1);
+        update_remote_cart_info(product_id, 1);
+        // console.log(amount,price)
+        // 计算商品总价
+        amount += price*1;
+        // 更新页面底部总数和总价
+        $('.submit-price span').html("&yen;"+amount.toFixed(1));
+        $('.submit-count span').html(total);
+        // 更新购物车弹出层数量和价格
+        $(this).prev('.cart_product_count').text(count)
+        $(this).prev().prev().prev().html("￥"+price*count)
+    });
+    //购物车遮罩层减少商品
+    $('body').on('click','.cart_product_minus',function (){
+        product_id = $(this).attr('product_id');
+        price = $(this).attr('price');
+        count = $(this).next('.cart_product_count').text()
+        if (count >= 1){
+                count = Number(count) - 1
+                update_remote_cart_info(product_id, -1);
+
+                // 计算商品总价
+                amount -= price*1;
+                // 更新页面底部总数和总价
+                $('.submit-price span').html("&yen;"+amount.toFixed(1));
+                $('.submit-count span').html(total);
+                $(this).next('.cart_product_count').text(count)
+                $(this).prev('.cart_product_amount').html("￥"+price*count)
+                if (count == 0){
+                    console.log('go')
+                    $(this).parent().remove()
+                }
+        }
+
+    });
+    $('.add_cart').click(function(){
+        product_id = $(this).attr('product_id');
+        price = $(this).prev().text();
+        price = price.substring(1);
+        update_remote_cart_info(product_id, 1);
+        amount += price*1;
+        // 更新页面底部总数和总价
+        $('.submit-price span').html("&yen;"+amount.toFixed(1));
+        $('.submit-count span').html(total);
+        // 更新购物车弹出层数量和价格
+    });
+
+
+</script>
+<script type="text/javascript" src="static/js/index.js"></script>
+
+</body>
+</html>

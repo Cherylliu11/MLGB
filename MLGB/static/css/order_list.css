@@ -1,0 +1,111 @@
+* {
+	padding:0;
+	margin:0;
+	font-size:14px;
+    outline: none;
+}
+
+a {
+	color:rgb(7,17,27);
+	text-decoration:none;
+}
+
+ul{
+    list-style: none;
+    padding: 0px 30px;
+}
+
+
+
+.wrapper{
+    width: 414px;
+    height: 736px;
+}
+
+header{
+    width: 414px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 20px;
+    color: white;
+    /*margin-bottom: 10px;*/
+    border-bottom: 1px solid lightgrey;
+    background: red;
+}
+
+header  .left-item{
+    height: 40px;
+    width: 60px;
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    font-size: 30px;
+    float: left;
+}
+
+header .center-item{
+    height: 40px;
+    width: 294px;
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    float: left;
+}
+
+h1{
+    font-size: 20px;
+    margin: 10px 0px 0px 20px;
+}
+
+.current_order,.history_order{
+    padding: 0px 20px;
+    width: 374px;
+    height: 85px;
+    border-bottom: 0.1px solid lightgrey;
+}
+.clear{
+    clear:both
+}
+.order_right{
+    margin: 16px 0px;
+    float: right;
+}
+
+.current_order .order_right p{
+    font-size: 16px;
+    color: red;
+    font-weight: bold;
+}
+
+.history_order .order_right p{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.order_left{
+    margin: 18px 0;
+    float: left;
+}
+
+.order_left .p1{
+    font-size: 16px;
+}
+
+.order_left .p2{
+    color: grey;
+    text-align: center;
+}
+
+.order_right .p1{
+    margin-bottom: 10px;
+}
+
+.order_left .p2{
+    color: grey;
+    text-align: center;
+}
+

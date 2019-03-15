@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>个人信息设置</title>
+    <link href="/static/css/userinfo.css" rel="stylesheet">
+</head>
+    <body>
+        <div class="wrapper">
+            <header>
+                <a class="left-item" href="/"><</a>
+                <div class="center-item">个人信息</div>
+            </header>
+            <div id="main">
+                    <div id='photo' class="item">
+                        <img class='left-img' src='/static/images/photo.png'>
+                        <p class='left'>头像</p>
+                        <img src="/static/{{user_list.image}}" id="userimg" class="right">
+                    </div>
+                    <div id='name' class="item">
+                        <img class='left-img' src='/static/images/name.png'>
+                        <p class='left'>昵称</p>
+                        <input class="right" name="name" placeholder="请输入您的昵称" value={{user_list.name}}>
+                    </div>
+                    <div id='phone' class="item">
+                        <img class='left-img' name="phone" src='/static/images/phone.png'>
+                        <p class='left'>手机</p>
+                        <p class="right">{{user_list.mobile}}</p>
+                    </div>
+                    <div id='password' class="item">
+                        <img class='left-img' src='/static/images/password.png'>
+                        <p class='left'>密码管理</p>
+                        <p class='right'>修改密码</p>
+                    </div>
+                    <div id='setpwd1' class="item">
+                        <img class='left-img' src='/static/images/password.png'>
+                        <p class='left'>修改密码</p>
+                        <input class='right' name="pwd1" type="password" placeholder="请输入新密码">
+                    </div>
+                    <div id='setpwd2' class="item">
+                        <img class='left-img' src='/static/images/password.png'>
+                        <p class='left'>确认密码</p>
+                        <input class='right' name="pwd2" type="password" placeholder="请输入新密码">
+                    </div>
+                    <div id='exit' class="item">
+                        <img class='left-img' src='/static/images/exit.png'>
+                        <p class="left">登出账号</p>
+                    </div>
+                    <p id="errmsg"></p>
+            </div>
+            {% csrf_token %}
+            <div id="footer">
+                确认并保存个人信息
+            </div>
+        </div>
+        <script src="/static/js/jquery-1.11.3.js"></script>
+        <script type="text/javascript" src="/static/js/userinfo.js"></script>
+    </body>
+</html>

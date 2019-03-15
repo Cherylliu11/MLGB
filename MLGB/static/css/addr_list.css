@@ -1,0 +1,106 @@
+* {
+	padding:0;
+	margin:0;
+	font-size:14px;
+    outline: none;
+}
+
+a {
+	color:rgb(7,17,27);
+	text-decoration:none;
+}
+
+ul{
+    list-style: none;
+    padding: 0px 30px;
+}
+
+.wrapper{
+    width: 414px;
+    height: 736px;
+    background: #f0f0f0;
+}
+
+header{
+    width: 414px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 20px;
+    color: white;
+    /*margin-bottom: 10px;*/
+    border-bottom: 1px solid lightgrey;
+    background: red;
+}
+
+header .left-item{
+    height: 40px;
+    width: 60px;
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    font-size: 30px;
+    float: left;
+}
+
+header .center-item{
+    height: 40px;
+    width: 254px;
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    float: left;
+}
+
+header .right-item{
+    /*width: 60px;*/
+    height: 40px;
+    margin: 10px;
+    float: right;
+    color: white;
+    line-height: 40px;
+    font-size: 18px;
+}
+
+.addr_list{
+    padding: 10px 0;
+    border-bottom: 0.1px solid lightgrey;
+    overflow: hidden;
+}
+.addr_list p{
+    width: 280px;
+    font-size: 15px;
+    margin: 5px 0px;
+}
+
+.addr_list p:last-child{
+    color: grey;
+}
+
+.addr_list b{
+    font-size: 16px;
+}
+
+.addr_list img{
+    margin-top: 18px;
+    float: right;
+}
+
+
+#divider{
+    background: white;
+    margin-top: 15px;
+    padding: 15px 0 0 15px;
+}
+
+#outof_range,#in_range{
+    background: white;
+}
+
+
+#outof_range p{
+    color: darkgrey;
+}
